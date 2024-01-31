@@ -13,9 +13,9 @@ size_t height_right = 0;
 		return (0);
 
 	if (tree->left)
-		height_left += binary_tree_height(tree->left);
+		height_left = binary_tree_height(tree->left);
 	if (tree->right)
-		height_right += binary_tree_height(tree->right);
+		height_right = binary_tree_height(tree->right);
 
 	return (((height_left > height_right) ? height_left : height_right) + 1);
 }
