@@ -20,7 +20,7 @@ size_t height_right = 0;
 	return (((height_left > height_right) ? height_left : height_right) + 1);
 }
 
-#include "binary_trees.h"
+
 /**
  * binary_tree_balance - fun to calculate the balance factor of a tree
  * @tree: the tree to get it's balance factor
