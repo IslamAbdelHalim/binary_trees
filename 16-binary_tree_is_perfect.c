@@ -61,6 +61,9 @@ int left, right;
 	if (!tree)
 		return (0);
 
+	if (!tree->left && !tree->right)
+		return (0);
+
 	left = height(tree->left);
 	right = height(tree->right);
 
