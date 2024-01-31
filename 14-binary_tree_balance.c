@@ -11,7 +11,7 @@ size_t height_right = 0;
 
 	if (tree == NULL)
 		return (0);
-	
+
 	if (tree->left)
 		height_left += binary_tree_height(tree->left);
 	if (tree->right)
