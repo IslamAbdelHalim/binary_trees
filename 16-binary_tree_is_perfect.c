@@ -64,8 +64,13 @@ int left, right;
 	left = height(tree->left);
 	right = height(tree->right);
 
-	if (left == right && full(tree))
-		return (1);
+	if (left == right)
+	{
+		if (!tree->left && !tree->right)
+			return (1);
+		return ((binary_tree_is_perfect(tree->left)) &&
+		(binary_tree_is_perfect(tree->right)));
+	}
 
 	return (0);
 }
