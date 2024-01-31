@@ -20,13 +20,12 @@ size_t height_right = 0;
 	return (((height_left > height_right) ? height_left : height_right) + 1);
 }
 
-
 /**
- * binary_tree_balance - fun to calculate the balance factor of a tree
- * @tree: the tree to get it's balance factor
- * Return: balance factor
+ * binary_tree_is_perfect - fun to check if a tree perfect or not
+ * @tree: tree to check
+ * Return: 1 if perfect 0 otherwise
 */
-int binary_tree_balance(const binary_tree_t *tree)
+int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 int left, right;
 
@@ -36,5 +35,10 @@ int left, right;
 	left = binary_tree_height(tree->left);
 	right = binary_tree_height(tree->right);
 
-	return (left - right);
+	if (left == right)
+	{
+		if (tree->left && tree->right)
+			return (1);
+	}
+	return (0);
 }
