@@ -31,30 +31,22 @@ int full(const binary_tree_t *tree)
 {
 	int left = 0, right = 0;
 
-	if (tree == NULL)
-	{
+	if (!tree)
 		return (0);
-	}
-	else
-	{
-		if (tree->left && tree->right)
-		{
-			left = full(tree->left);
-			right = full(tree->right);
-			if (left == 0 || right == 0)
-				return (0);
 
-			return (1);
-		}
-		else if (!tree->left && !tree->right)
-		{
-			return (1);
-		}
-		else
-		{
+	if (tree->left && tree->right)
+	{
+		left = full(tree->left);
+		right = full(tree->right);
+		if (left == 0 || right == 0)
 			return (0);
-		}
+
+		return (1);
 	}
+	else if (!tree->left && !tree->right)
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -72,7 +64,7 @@ int left, right;
 	left = height(tree->left);
 	right = height(tree->right);
 
-	if (left == right && full(tree) && !tree->left && !tree->right)
+	if (left == right && full(tree))
 		return (1);
 
 	return (0);
