@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_is_complate - function that check if the tree is complage
+ * binary_tree_is_complete - function that check if the tree is complage
  *
  * @tree: pointer to the tree
  *
@@ -31,7 +31,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		}
 		else
 		{
-			return (0);	
+			return (0);
 		}
 	}
 }
