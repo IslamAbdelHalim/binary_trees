@@ -1,3 +1,4 @@
-O(1)
-O(log n)
-o(n)
+
+O(log(n))
+O(log(n))
+O(log(n))
