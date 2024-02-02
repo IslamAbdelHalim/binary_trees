@@ -8,42 +8,44 @@ bst_t *newnode, *current;
 
 	if (!tree)
 		return (NULL);
-	newnode = binary_tree_node(NULL, value);
-	if (!newnode)
-		return (NULL);
+
+	current = *tree;
+
 	if (!*tree)
 	{
+		newnode = binary_tree_node((binary_tree_t *)(*tree), value);
 		*tree = newnode;
 		return (newnode);
 	}
-	current = *tree;
-	while (current)
+	else if (value < current->n)
 	{
-		if (value == current->n)
+		if (current->left)
 		{
-			free(newnode);
-			return (NULL); /*the node already exist*/
+			newnode = bst_insert(&current->left, value);	
 		}
-		if (value > current->n)
+		else
 		{
-			if (!current->right)
-			{
-				current->right = newnode;
-				newnode->parent = current;
-				return (newnode);
-			}
-			else
-		}
-		if (value < current->n)
-		{
-			if (!current->left)
-			{
-				current->left = newnode;
-				newnode->parent = current;
-				return (newnode);
-			}
-
+			newnode = binary_tree_node(current, value);
+			current->left = newnode;
+			return (newnode);
 		}
 	}
-	return (NULL);
+	else if (value > current->n)
+	{
+		if (current->right)
+		{
+			newnode = bst_insert(&current->right, value);
+		}
+		else
+		{
+			newnode = binary_tree_node(current, value);
+			current->right = newnode;
+			return (newnode);
+		}
+	}
+	else
+	{
+		return (NULL);
+	}
+	return (newnode);
 }
