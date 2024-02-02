@@ -22,7 +22,7 @@ bst_t *bst_search(const bst_t *tree, int value)
 	}
 	else if (value >= tree->n)
 	{
-		node = bst_search(tree->right, value)
+		node = bst_search(tree->right, value);
 	}
 	else if (value == tree->n)
 	{
