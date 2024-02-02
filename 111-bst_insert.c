@@ -1,6 +1,9 @@
 #include "binary_trees.h"
 /**
- *
+ * bst_insert - fun to insert node in bst
+ * @tree: tree to insert in it
+ * @value: value of the node inserted
+ * Return: as need
 */
 bst_t *bst_insert(bst_t **tree, int value)
 {
@@ -8,9 +11,7 @@ bst_t *newnode, *current;
 
 	if (!tree)
 		return (NULL);
-
 	current = *tree;
-
 	if (!*tree)
 	{
 		newnode = binary_tree_node((binary_tree_t *)(*tree), value);
@@ -20,9 +21,7 @@ bst_t *newnode, *current;
 	else if (value < current->n)
 	{
 		if (current->left)
-		{
-			newnode = bst_insert(&current->left, value);	
-		}
+			newnode = bst_insert(&current->left, value);
 		else
 		{
 			newnode = binary_tree_node(current, value);
@@ -33,9 +32,7 @@ bst_t *newnode, *current;
 	else if (value > current->n)
 	{
 		if (current->right)
-		{
 			newnode = bst_insert(&current->right, value);
-		}
 		else
 		{
 			newnode = binary_tree_node(current, value);
@@ -44,8 +41,6 @@ bst_t *newnode, *current;
 		}
 	}
 	else
-	{
 		return (NULL);
-	}
 	return (newnode);
 }
